@@ -26,8 +26,11 @@ The cleaned notebook expects a prebuilt nine-band GeoTIFF and an AOI GeoJSON. It
 - PC1 explained 76.8% of variance and PC2 explained 8.1%.
 - The k=4, 6, and 9 solutions describe progressively finer partitions along a broad vegetation-to-built-up and warmer-surface gradient.
 - The LCZ comparison is descriptive, not a supervised classification accuracy assessment.
+- LST is included in the clustering inputs. Cluster temperature differences are descriptive, not independent evidence that the model predicts or discovers thermal conditions.
 
 The temperature profiles are normalized relative values, not degrees Celsius. Results cover one summer and one study area; they do not establish year-to-year or cross-city stability.
+
+See [RESULTS.md](RESULTS.md) for the existing figure sources, missing result artifacts, and checks needed for a reproducible portfolio example.
 
 ## My contribution
 
@@ -37,7 +40,7 @@ Yiyi Cen authored the final Webstory narrative, explaining the research question
 
 The original analysis environment recorded Python 3.13.14, NumPy 2.5.1, Rasterio 1.5.0, GeoPandas 1.1.4, and scikit-learn 1.9.0. Install the listed dependencies, put the files in the locations described in [`data/README.md`](data/README.md), then start Jupyter from the repository root and run [`notebooks/urban_thermal_analysis.ipynb`](notebooks/urban_thermal_analysis.ipynb).
 
-Set `URBAN_THERMAL_DATA_DIR` if your input data live outside the repository's `data/` directory. Set `URBAN_THERMAL_OUTPUT_DIR` to choose a different output folder. Generated maps and aligned LCZ data are written under `outputs/` by default.
+Set `URBAN_THERMAL_DATA_DIR` if your input data live outside the repository's `data/` directory. Set `URBAN_THERMAL_OUTPUT_DIR` to choose a different output folder. The correspondence figure and aligned LCZ raster are written under `outputs/` by default.
 
 ## Data, attribution, and licensing
 
@@ -53,5 +56,6 @@ The available story URL is an ESA narrative pull-request preview and may change.
 
 - One summer, one study area, and a 100 m analysis grid.
 - LST profiles are relative normalized values, not physical temperature differences.
-- The LCZ cross-tabulation is an external descriptive comparison, not model accuracy.
+- The LCZ cross-tabulation is an external descriptive comparison, not model accuracy; ordinary chi-square significance is not reported because neighbouring cells are spatially dependent.
+- Cluster IDs and palette colours do not carry stable physical meanings across refits.
 - The full Sentinel-2, CLMS, and Landsat preprocessing chain is not included in this analysis-only package.
