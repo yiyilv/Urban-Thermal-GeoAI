@@ -1,4 +1,4 @@
-# Unsupervised Mapping of Urban Thermal Environments
+# ESA_Urban_Thermal
 
 Team project for the ESA ESRIN Science Hub Challenges 2026. The analysis explores whether multi-source Earth observation variables can reveal urban surface and thermal patterns across Milan and Monza-Brianza, Italy, without prescribing land-cover classes in advance.
 
